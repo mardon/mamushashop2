@@ -30,3 +30,17 @@ $factory->define(App\Category::class, function (Faker $faker) {
     ];
 
 });
+
+$factory->define(App\Product::class, function (Faker $faker) {
+    $name = $faker->word();
+
+    return [
+        'categories_id' => $faker->numberBetween($min = 1, $max = 10),
+        'sku' => $faker->randomNumber(5),
+        'name' => $name,
+        'slug' => str_slug($name),
+        'description' => $faker->text(150),
+        'price' => $faker->randomNumber(4),
+        'quantity' => $faker->numberBetween($min = 1, $max = 20),
+    ];
+});

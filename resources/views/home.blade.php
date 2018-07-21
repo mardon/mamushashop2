@@ -1,23 +1,48 @@
-@extends('layouts.app')
+@extends('layouts.front')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
+        @foreach($products as $product)
+            <div class="card m-1" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                    <h5 class="card-title">{{ $product->name }}</h5>
+                    <p class="card-text">{{ $product->description }}</p>
+                    <a href="#" id="buy" class="btn btn-primary" data-id="{{ $product->id }}">Add to cart</a>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log('here');
+            $('a#buy').click(function(e){
+                console.log('klik');
+                e.preventDefault();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var id = $(this).data('id');
+                var url = "/addcart";
+
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    data: {id: id },
+                    dataType: 'json',
+                    success: function(response){
+                        console.log(response)
+                    }});
+                });
+        });
+    </script>
 @endsection
