@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use View;
+use Session;
+use Cart;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('layouts.front', function($view) {
+            $cart_qty =  Cart::count();
+            $view->with('cart_qty',$cart_qty);
+        });
     }
 
     /**

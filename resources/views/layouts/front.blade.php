@@ -39,14 +39,19 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                    <button type="button" class="btn btn-primary">
-                        <i class="fas fa-shopping-cart"></i> <span class="badge badge-light">4</span>
-                    </button>
+                    <a href="{{ url('cart') }}" type="button" class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> <span class="badge badge-light">{{ $cart_qty }}</span>
+                    </a>
             </div>
         </div>
     </nav>
 
     <main class="py-4">
+        @foreach (['danger', 'warning', 'success', 'info'] as $key)
+            @if(Session::has($key))
+                <p class="alert alert-{{ $key }}">{{ Session::get($key) }}</p>
+            @endif
+        @endforeach
         @yield('content')
     </main>
 </div>
