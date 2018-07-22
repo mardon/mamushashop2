@@ -24,4 +24,11 @@ class CartController extends Controller
 
         return back();
     }
+
+    public function destroy()
+    {
+        Cart::destroy();
+
+        return back();
+    }
 }

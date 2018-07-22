@@ -25,6 +25,7 @@
                 @endforeach
                 </tbody>
             </table>
+            <a href="{{ URL::to('/cartdestroy') }}" class="btn btn-primary">Vymazat košík</a>
         </div>
     </div>
 @endsection

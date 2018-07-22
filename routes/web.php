@@ -21,3 +21,4 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/addcart', 'AjaxController@store');
 Route::get('/cartdelete/{id}', 'CartController@delete');
+Route::get('/cartdestroy', 'CartController@destroy');
