@@ -13,7 +13,6 @@ class CartController extends Controller
         if (Cart::count() == 0) {
             return view('cartempty');
         }
-        dd($cart);
         return view('cart')->with('cart', $cart);
     }
 }
