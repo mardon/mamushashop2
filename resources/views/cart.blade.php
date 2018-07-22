@@ -10,6 +10,7 @@
                     <th scope="col">Cena</th>
                     <th scope="col">Množství</th>
                     <th scope="col">Cena celkem</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -19,6 +20,7 @@
                     <td>{{ $row->price }}</td>
                     <td>{{ $row->qty }}</td>
                     <td>{{ $row->total }}</td>
+                    <td> <a href="{{ URL::to('/cartdelete/'.$row->id ) }} " class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
                 @endforeach
                 </tbody>

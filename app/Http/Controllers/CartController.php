@@ -15,4 +15,13 @@ class CartController extends Controller
         }
         return view('cart')->with('cart', $cart);
     }
+
+    public function delete($id)
+    {
+        $item = Cart::search(function($cartItem, $rowId) use($id){ return $cartItem->id == $id; });
+        $rowId = $item->first()->rowId;
+        Cart::remove($rowId);
+
+        return back();
+    }
 }
