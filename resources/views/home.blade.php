@@ -21,9 +21,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            console.log('here');
             $('a#buy').click(function(e){
-                console.log('klik');
                 e.preventDefault();
                 $.ajaxSetup({
                     headers: {
@@ -40,8 +38,8 @@
                     data: {id: id },
                     dataType: 'json',
                     success: function(response){
-                        console.log(response);
-                        console.log(response.cart_qty);
+                        //console.log(response);
+                        //console.log(response.cart_qty);
                         $('.badge').html(response.cart_qty);
                     }});
                 });
