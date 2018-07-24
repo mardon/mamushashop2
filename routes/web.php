@@ -22,3 +22,7 @@ Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/addcart', 'AjaxController@store');
 Route::get('/cartdelete/{id}', 'CartController@delete');
 Route::get('/cartdestroy', 'CartController@destroy');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function () {
+    Route::get('/', 'DashBoardController@index');
+});
