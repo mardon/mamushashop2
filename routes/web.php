@@ -25,4 +25,5 @@ Route::get('/cartdestroy', 'CartController@destroy');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function () {
     Route::get('/', 'DashBoardController@index');
+    Route::get('/categories', 'Admin\CategoryController@index');
 });

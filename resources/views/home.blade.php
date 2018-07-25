@@ -38,8 +38,6 @@
                     data: {id: id },
                     dataType: 'json',
                     success: function(response){
-                        //console.log(response);
-                        //console.log(response.cart_qty);
                         $('.badge').html(response.cart_qty);
                     }});
                 });
