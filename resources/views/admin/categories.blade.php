@@ -8,6 +8,7 @@
             <th scope="col">id</th>
             <th scope="col">Název</th>
             <th scope="col">Slug</th>
+            <th scope="col">Počet produktů</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -17,7 +18,8 @@
             <<td>{{ $category->id }}</td>
             <td>{{ $category->name }}</td>
             <td>{{ $category->slug }}</td>
-            <td><a href="" class="badge badge-primary">edit</a> <span class="badge badge-danger">delete</span></td>
+            <td>{{ $category->products->count() }}</td>
+            <td><a href="{{ URL::to('/admin/category/edit/'.$category->id ) }}" class="badge badge-primary">edit</a> <span class="badge badge-danger">delete</span></td>
         </tr>
         @endforeach
         </tbody>
