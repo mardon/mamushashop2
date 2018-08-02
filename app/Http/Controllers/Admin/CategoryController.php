@@ -41,6 +41,14 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|unique:categories|max:255',
+            'slug' => 'required|unique:categories',
+        ] , [
+            'name.required' => 'Zadejte název kategorie',
+            'slug.required' => 'Zadejte slug'
+        ]);
+
         $category = new Category();
         $category->name = $request->name;
         $category->slug = $request->slug;
