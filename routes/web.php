@@ -28,4 +28,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function () {
     Route::get('/categories', 'Admin\CategoryController@index');
     Route::get('/category/edit/{id}', 'Admin\CategoryController@edit');
     Route::post('/category/update/{id}', 'Admin\CategoryController@update');
+    Route::get('/category/create', 'Admin\CategoryController@create');
+    Route::post('/category/store', 'Admin\CategoryController@store');
 });

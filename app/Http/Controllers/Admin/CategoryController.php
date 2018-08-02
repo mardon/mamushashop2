@@ -28,6 +28,27 @@ class CategoryController extends Controller
         $category->slug = $request->slug;
         $category->save();
 
+        flash('Kategorie byla uložena!')->success()->important();
+
         return redirect('admin/categories');
     }
+
+    public function create()
+    {
+        $categories = Category::pluck('name', 'id');;
+        return view('admin.categorycreate', ['categories' => $categories]);
+    }
+
+    public function store(Request $request)
+    {
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->save();
+
+        flash('Kategorie byla uložena!')->success()->important();
+
+        return redirect('admin/categories');
+    }
+
 }

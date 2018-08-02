@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
+    <a href="{{ URL::to('/admin/category/create/') }}" class="btn btn-success">Přidat kategorii</a>
     <h2>Kategorie</h2>
     <table class="table table-sm">
         <thead>
