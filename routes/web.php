@@ -30,4 +30,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function () {
     Route::post('/category/update/{id}', 'Admin\CategoryController@update');
     Route::get('/category/create', 'Admin\CategoryController@create');
     Route::post('/category/store', 'Admin\CategoryController@store');
+    Route::delete('/category/destroy/{id}', 'Admin\CategoryController@destroy');
 });

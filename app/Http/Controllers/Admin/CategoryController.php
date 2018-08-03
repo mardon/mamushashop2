@@ -59,4 +59,14 @@ class CategoryController extends Controller
         return redirect('admin/categories');
     }
 
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+
+        flash('Kategorie byla smazána!')->success()->important();
+
+        return redirect('admin/categories');
+    }
+
 }
